@@ -1,3 +1,4 @@
+basic.showIcon(IconNames.Heart)
 gatorLog.beginWithCustomPins(SerialPin.P8, SerialPin.P12, DigitalPin.P13)
 gatorLog.setDateAndTime(
 2021,
@@ -6,11 +7,12 @@ gatorLog.setDateAndTime(
 15,
 30
 )
-gatorLog.mkDirectory("Testfolder")
-gatorLog.chDirectory("Testfolder")
-gatorLog.openCSVFile("Testfile")
+gatorLog.mkDirectory("TestCSVFolder")
+gatorLog.chDirectory("TestCSVFolder")
+gatorLog.openCSVFile("TestCSVFile")
 gatorLog.writeRowWithTextToCSV(["Temperature °C", "Lightintensity"], HeaderLine.YES)
+basic.clearScreen()
 basic.forever(function () {
     gatorLog.writeRowWithNumbersToCSV([input.temperature(), input.lightLevel()], HeaderLine.NO)
-    basic.pause(1000)
+    basic.pause(5000)
 })
